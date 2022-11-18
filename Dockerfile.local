@@ -1,0 +1,9 @@
+FROM 080h/gemserv
+
+COPY public_gemini /gemserv/public_gemini
+COPY example.com-key.pem /gemserv
+COPY example.com.pem /gemserv
+COPY config.local.toml /gemserv
+
+ENTRYPOINT ["/usr/local/bin/gemserv"]
+CMD ["/gemserv/config.local.toml"]

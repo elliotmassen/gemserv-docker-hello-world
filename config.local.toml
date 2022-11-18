@@ -1,0 +1,7 @@
+interface = [ "[::]:1965" ]
+
+[[server]]
+hostname = "example.com"
+dir = "/gemserv/public_gemini"
+key = "/gemserv/example.com-key.pem"
+cert = "/gemserv/example.com.pem"

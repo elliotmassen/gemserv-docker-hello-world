@@ -1,0 +1,7 @@
+interface = [ "[::]:1965" ]
+
+[[server]]
+hostname = "your-app-name-here.fly.dev"
+dir = "/gemserv/public_gemini"
+key = "/gemserv/fly-key.pem"
+cert = "/gemserv/fly-cert.pem"

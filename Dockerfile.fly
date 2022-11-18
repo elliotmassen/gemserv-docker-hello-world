@@ -1,0 +1,17 @@
+FROM alpine as base
+
+ARG APP_NAME
+
+COPY config.fly.toml .
+RUN sed -i -e "s/your-app-name-here/$APP_NAME/g" config.fly.toml
+
+
+FROM 080h/gemserv
+
+COPY public_gemini /gemserv/public_gemini
+COPY fly-key.pem /gemserv
+COPY fly-cert.pem /gemserv
+COPY --from=base config.fly.toml /gemserv
+
+ENTRYPOINT ["/usr/local/bin/gemserv"]
+CMD ["/gemserv/config.fly.toml"]
